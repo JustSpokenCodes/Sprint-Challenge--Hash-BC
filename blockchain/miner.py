@@ -23,8 +23,16 @@ def proof_of_work(last_proof):
     start = timer()
 
     print("Searching for next proof")
+    proofs = {} # set proofs to empty dict for easy key value
     proof = 0
-    #  TODO: Your code here
+
+    global proof
+
+    last_hash = hashlib.sha256(str(last_proof).encode()).hexdigest()
+
+    will_match = last_hash[-6:]
+
+    if will_match in proofs
 
     print("Proof found: " + str(proof) + " in " + str(timer() - start))
     return proof
@@ -39,8 +47,9 @@ def valid_proof(last_hash, proof):
     IE:  last_hash: ...AE9123456, new hash 123456E88...
     """
 
-    # TODO: Your code here!
-    pass
+    will_match = str(last_hash)[-6:]
+    possible_match = hashlib.sha256(str(proof).encode()).hexdigest()[-6:]
+    return will_match == possible_match
 
 
 if __name__ == '__main__':
